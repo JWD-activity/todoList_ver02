@@ -11,14 +11,13 @@ class MyList extends Component {
   };
 
   addTodo = (newTask) => {
-    // 1. Check invalid user input(if only white space).
-    // if invalid, display the message.
+    // 1. Check invalid user input(if only white space).if invalid, display the message.
     if (!newTask.trim()) {
       window.confirm('Please, Enter something!');
       return;
     }
-    // 2. if valid, create unique id (uuid),
-    // then update toDos with a new task and id
+
+    // 2. if valid, create unique id (uuid),then update toDos with a new task and id
     const toDos = this.state.toDos;
     const id = createId();
     this.setState({ toDos: [{ id, task: newTask }, ...toDos] });
