@@ -21,7 +21,7 @@ export class AddItem extends Component {
         <form onSubmit={this.submitHandler}>
           <input
             type='text'
-            placeholder='Type an task here'
+            placeholder='Enter your task here.'
             aria-label='add item'
             onChange={this.changeHandler}
             value={this.state.userInput}

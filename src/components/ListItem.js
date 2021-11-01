@@ -9,8 +9,8 @@ export class ListItem extends Component {
     this.setState({ isChecked: e.target.checked });
   };
 
-  deleteHandler = (id) => {
-    this.props.removeTodo(id);
+  confirmHandler = (id) => {
+    this.props.showConfirm(id);
   };
 
   render() {
@@ -21,7 +21,7 @@ export class ListItem extends Component {
         {this.state.isChecked && (
           <button
             className='delete-btn'
-            onClick={() => this.deleteHandler(this.props.todoItem.id)}
+            onClick={() => this.confirmHandler(this.props.todoItem.id)}
           >
             X
           </button>

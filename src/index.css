@@ -6,10 +6,13 @@
   --grey-text-color: #6e7781;
   --white-text-color: #fff;
   --main-bg-color: #f1f5f5;
+  --warning-bg-color: #d32f2f;
+  --info-bg-color: #0288d1;
   --btn-color: #34acbc;
   --btn-hover-color: #288491;
   --border-color: #ddd;
   --border-radius: 0.25rem;
+  --border-radius-lg: 1rem;
   --font-weight-bold: 700;
   --font-weight-regular: 500;
   --font-weight-light: 400;
@@ -79,13 +82,19 @@ footer {
 
 /* button style */
 .add-btn,
-.delete-btn {
+.delete-btn,
+.ok-btn,
+.cancel-btn {
   border: none;
   border-radius: var(--border-radius);
-  background-color: var(--btn-color);
   cursor: pointer;
-  color: var(--white-text-color);
+}
+
+.add-btn,
+.delete-btn {
   font-weight: var(--font-weight-regular);
+  background-color: var(--btn-color);
+  color: var(--white-text-color);
 }
 
 .add-btn:hover,
@@ -101,8 +110,24 @@ footer {
   font-size: 1.2rem;
 }
 
-/* ListItem Component style */
+.ok-btn,
+.cancel-btn {
+  margin: 1rem;
+  padding: 1rem 1.5rem;
+  font-weight: var(--font-weight-bold);
+}
 
+.ok-btn:hover {
+  color: var(--info-bg-color);
+  transition: all 0.3s;
+}
+
+.cancel-btn:hover {
+  color: var(--warning-bg-color);
+  transition: all 0.3s;
+}
+
+/* ListItem Component style */
 ul {
   padding-left: 2rem;
 }
@@ -141,6 +166,35 @@ input:checked + li {
   color: var(--grey-text-color);
 }
 
+/* Alert Component style */
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 10;
+  background: #f1f5f5c4;
+}
+
+.alert,
+.confirm {
+  text-align: center;
+  color: var(--white-text-color);
+  border-radius: var(--border-radius-lg);
+  max-width: 50rem;
+  margin: 1.5rem auto;
+  padding: 0.5rem;
+}
+
+.alert {
+  background-color: var(--warning-bg-color);
+}
+
+.confirm {
+  background-color: var(--info-bg-color);
+}
+
 /* MediaQuery */
 @media (max-width: 576px) {
   .create form {
@@ -165,5 +219,9 @@ input:checked + li {
 
   footer {
     font-size: 1.3rem;
+  }
+  .alert,
+  .confirm {
+    margin: 1.5rem;
   }
 }
