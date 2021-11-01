@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, createRef } from 'react';
 import { v4 as createId } from 'uuid';
 import AddItem from './components/AddItem';
 import ListItem from './components/ListItem';
@@ -8,6 +8,8 @@ import Alert from './components/Alert';
 import Confirmation from './components/Confirmation';
 
 class MyList extends Component {
+  focusRef = createRef();
+
   state = {
     toDos: this.props.theList,
     isAlert: false,
@@ -18,6 +20,7 @@ class MyList extends Component {
   addTodo = (newTask) => {
     if (!newTask.trim()) {
       this.setState({ isAlert: true });
+      this.focusRef.current.blur();
       return;
     }
 
@@ -72,7 +75,7 @@ class MyList extends Component {
         {this.state.isAlert && <Alert alert={this.displayAlert} />}
         <Header heading='Things I should stop procrastinating 😀' />
         <main>
-          <AddItem addTodo={this.addTodo} />
+          <AddItem addTodo={this.addTodo} focusRef={this.focusRef} />
           <div className='list'>
             <ul>{this.displayTodos()}</ul>
           </div>

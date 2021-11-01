@@ -25,6 +25,7 @@ export class AddItem extends Component {
             aria-label='add item'
             onChange={this.changeHandler}
             value={this.state.userInput}
+            ref={this.props.focusRef}
             required
           />
           <button className='add-btn' type='submit'>
