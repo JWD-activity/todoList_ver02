@@ -17,6 +17,7 @@
 - React
 - NPM  
   - **uuid** https://www.npmjs.com/package/uuid
+  - **gh-pages** https://www.npmjs.com/package/gh-pages
 
 ### Useful resources
 - [React Filter: Filtering Arrays in React](https://upmostly.com/tutorials/react-filter-filtering-arrays-in-react-with-examples)
